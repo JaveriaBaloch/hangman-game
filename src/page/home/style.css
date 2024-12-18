@@ -1,0 +1,84 @@
+.cards-holder {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    perspective: 100rem; /* Increases the depth effect */
+    margin-top: 3rem;
+  }
+  
+  .card {
+    perspective: 30rem;
+    position: relative;
+    height: 17rem;
+    width: 17rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #3e0315, #000000);
+    color: white;
+    font-family: "Bungee Spice", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 3;
+  }
+  
+  .card:hover{
+    background: #000000 !important;
+    transform: scale(1.1);
+    &::after,&::before{
+        background: #cccccca6; /* Subtle gradient for the side */
+        /* transform: scale(1.1); */
+
+  }
+}
+  .card:active {
+    transform: translateY(2px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card::after {
+    transform: translateZ(-100px);
+
+    position: absolute;
+    top: 5px;
+    content: "";
+    right: -10px;
+    transform: skewY(21deg) rotateY(25deg);
+    width: 16px;
+    background: #cccccca6; /* Subtle gradient for the side */
+    height: 100%;
+    z-index: 0;
+    border-top-right-radius: 5px; /*Matches card's rounded edges*/
+    border-bottom-right-radius: 5px;
+  }
+  .card::before {
+    position: absolute;
+    bottom: -8px;
+    content: "";
+    left: 1px;
+    transform: skewX(21deg) rotateX(25deg);
+    width:102%;
+    background: #cccccc7e; /* Subtle gradient for the side*/
+    height: 16px;
+    z-index: -1;
+    border-bottom-right-radius:8px; /*Matches card's rou*/
+    border-bottom-left-radius: 5px;
+  }
+  
+  h1 {
+    font-family: "Honk", system-ui;
+    font-size: 5rem;
+    color: white;
+  }
+  
+  h2 {
+    font-family: "Bungee Spice", sans-serif;
+    color: white;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
