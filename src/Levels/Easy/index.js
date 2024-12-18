@@ -168,60 +168,76 @@ const HangmanLevelEasy = () => {
         <div>
           <h3>Pick a letter:</h3>
           <div style={{ display: "inline-block", marginTop: "20px" }}>
-            {keyboardLayout.map((row, rowIndex) => (
-              <div
-                key={rowIndex}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginBottom: "10px",
-                }}
-              >
-                {row.map((letter) => (
-                  <button
-                    key={letter}
-                    onClick={() => handleGuess(letter)}
-                    disabled={
-                      guesses.includes(letter) || wrongGuesses.includes(letter)
-                    }
-                    style={{
-                      margin: "7px",
-                      width: "4rem",
-                      height: "4rem",
-                      fontSize: "30px",
-                      background:
-                        guesses.includes(letter) || wrongGuesses.includes(letter)
-                          ? "#ccc"
-                          : "white",
-                      color: "#020202",
-                      border: "none",
-                      boxShadow:
-                        guesses.includes(letter) || wrongGuesses.includes(letter)
-                          ? "none"
-                          : "5px 5px 0px gray",
-                      borderRadius: "5px",
-                      cursor:
-                        guesses.includes(letter) || wrongGuesses.includes(letter)
-                          ? "not-allowed"
-                          : "pointer",
-                      opacity:
-                        guesses.includes(letter) || wrongGuesses.includes(letter)
-                          ? 0.7
-                          : 1,
-                      transition: "background 0.3s, transform 0.2s",
-                    }}
-                    onMouseDown={(e) => {
-                      e.target.style.transform = "scale(0.9)";
-                    }}
-                    onMouseUp={(e) => {
-                      e.target.style.transform = "scale(1)";
-                    }}
-                  >
-                    {letter}
-                  </button>
-                ))}
-              </div>
-            ))}
+          <div style={{ display: "inline-block", marginTop: "20px" }}>
+  {keyboardLayout.map((row, rowIndex) => (
+    <div
+      key={rowIndex}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: "10px",
+      }}
+    >
+      {row.map((letter) => (
+        <button
+          key={letter}
+          onClick={() => handleGuess(letter)}
+          disabled={
+            guesses.includes(letter) || wrongGuesses.includes(letter)
+          }
+          style={{
+            margin: "7px",
+            width: "4rem",
+            height: "4rem",
+            fontSize: "30px",
+            background:
+              guesses.includes(letter) || wrongGuesses.includes(letter)
+                ? "#ccc"
+                : "white",
+            color: "#020202",
+            border: "none",
+            boxShadow:
+              guesses.includes(letter) || wrongGuesses.includes(letter)
+                ? "none"
+                : "5px 5px 0px gray",
+            borderRadius: "5px",
+            cursor:
+              guesses.includes(letter) || wrongGuesses.includes(letter)
+                ? "not-allowed"
+                : "pointer",
+            opacity:
+              guesses.includes(letter) || wrongGuesses.includes(letter)
+                ? 0.7
+                : 1,
+            transition: "background 0.3s, transform 0.2s",
+            // Responsive adjustments
+            '@media (max-width: 768px)': {
+              width: "3rem",
+              height: "3rem",
+              fontSize: "20px",
+              margin: "5px",
+            },
+            '@media (max-width: 480px)': {
+              width: "2.5rem",
+              height: "2.5rem",
+              fontSize: "16px",
+              margin: "3px",
+            },
+          }}
+          onMouseDown={(e) => {
+            e.target.style.transform = "scale(0.9)";
+          }}
+          onMouseUp={(e) => {
+            e.target.style.transform = "scale(1)";
+          }}
+        >
+          {letter}
+        </button>
+      ))}
+    </div>
+  ))}
+</div>
+
           </div>
         </div>
       )}
